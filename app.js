@@ -26,7 +26,7 @@ const queryDb = async (query) => {
     } catch (err) {
         console.error(`Error connecting to the database, retry in ${process.env.RETRY_INTERVAL}ms. Error=[${err.message}]. ConnectionString=[${dbConfig.connectionString}]`);
 
-        // Retry the connection after 5 seconds
+        // Retry the connection after specified interval
         setTimeout(queryDb, process.env.RETRY_INTERVAL);
     }
 };
@@ -36,7 +36,7 @@ queryDb('SELECT * FROM "contact"');
 
 // Define your routes and other middleware here
 app.get('/', (req, res) => {
-    res.send('Hello World!');
+    res.send('Hello from iData!');
 });
 
 // Handle any unhandled routes

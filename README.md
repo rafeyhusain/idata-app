@@ -1,6 +1,6 @@
 # Express Node.js Application with PostgreSQL Connection Retry
 
-This is a simple Express Node.js application that demonstrates how to retry the connection to a PostgreSQL database every 5 seconds in case of an exception while selecting records from the `User` table.
+This is a simple Express Node.js application that demonstrates how to retry the connection to a PostgreSQL database every 5 seconds in case of an exception while selecting records from the `contact` table.
 
 ## Prerequisites
 
@@ -24,7 +24,10 @@ cd idata-app
 npm install
 ```
 
-3. Update PostgreSQL connection string in `.env` file:
+3. Create database
+   Create a database named `sample` in PostgresSQL and run `script.sql` using any SQL tool (e.g. `pgAdmin4`)
+
+4. Update PostgreSQL connection string in `.env` file:
 
 ```bash
 DATABASE_URL=postgres://username:password@localhost:5432/dbname
@@ -40,7 +43,7 @@ To run the application, execute the following command:
 npm start
 ```
 
-The application will start the Express server and attempt to connect to the PostgreSQL database using the provided connection string. If the database is unavailable, it will retry the connection every 5 seconds until it successfully connects. If any exceptions occur during the connection process or while selecting records from the User table, they will be logged to the console, and the retry mechanism will be triggered.
+The application will start the Express server and attempt to connect to the PostgreSQL database using the provided connection string. If the database is unavailable, it will retry the connection every 5 seconds until it successfully connects. If any exceptions occur during the connection process or while selecting records from the `contact` table, they will be logged to the console, and the retry mechanism will be triggered.
 
 ### Simulate Failure
 
